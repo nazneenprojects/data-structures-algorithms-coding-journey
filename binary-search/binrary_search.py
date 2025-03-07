@@ -3,6 +3,29 @@
 Binary Search Algorithm
 
 """
+import random
+
+def binary_search(list_input, item):
+    low = 0
+    high = len(list_input) - 1
+
+
+    while low <= high:
+
+        mid = (low + high) // 2
+        searched_item = list_input[mid]
+
+        if  searched_item == item:
+            return mid
+        elif searched_item >  item:
+            high = mid - 1
+        else:
+            low = mid + 1
+    return None
+
+
+
+
 
 input_data =  {
     "simple_list": [2, 3, 4, 13, 40],
@@ -14,5 +37,24 @@ input_data =  {
 
 
 if __name__ == "__main__":
-    
-    searchitem = binary_search()
+
+    #list_name, list_value = next(iter(input_data.items()))
+
+    for key, value in input_data.items():
+
+        item =  random.choice(value)
+
+        print("-------------------------------------------------------")
+        print(f"Executed Binary Search for {key}{value} to find {item}:")
+
+        searched_item = binary_search(value, item)
+
+        print(f"Item located at : {searched_item}")
+        print("-------------------------------------------------------")
+
+    print(f"Runtime Complexity of Binary Search:")
+
+    print("Best Case: O(1)")  # When the target is found at the middle element
+    print("Worst Case: O(log n)")  # When the search space is reduced to 1 element. Iterate through n elements
+    print("Average Case: O(log n)")  # Since each step halves the search space
+
