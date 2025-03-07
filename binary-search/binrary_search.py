@@ -38,7 +38,6 @@ input_data =  {
 
 if __name__ == "__main__":
 
-    #list_name, list_value = next(iter(input_data.items()))
 
     for key, value in input_data.items():
 
