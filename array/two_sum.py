@@ -30,23 +30,22 @@ Constraints:
 -109 <= target <= 109
 
 """
+
 from typing import List
 
 
 class Solution:
-
     """
     Time Complexity: O(n′2)
     Space Complexity : O (1) stores only 2 indices
     """
+
     def twoSum_bruteforce(self, nums: List[int], target: int) -> List[int]:
         for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
+            for j in range(i + 1, len(nums)):
                 if nums[i] + nums[j] == target:
                     return [i, j]
         return []
-
-
 
     """
        Time Complexity: O(n)
@@ -63,6 +62,7 @@ class Solution:
             complement = 9 - 7 = 2
             2 exists in map! Return [map[2], 1] = [0, 1]
     """
+
     def twoSum_hastTable(self, nums: List[int], target: int) -> List[int]:
         num_map_dict = {}
         for i, n in enumerate(nums):
@@ -70,7 +70,6 @@ class Solution:
 
             if complement in num_map_dict:
                 return [num_map_dict[complement], i]
-
 
             num_map_dict[n] = i
 
@@ -86,4 +85,3 @@ if __name__ == "__main__":
 
     result1 = solution.twoSum_hastTable(nums, target)
     print("result1", result1)
-

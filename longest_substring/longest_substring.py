@@ -3,23 +3,24 @@ Longest Substring
 
 """
 
+
 def longest_substring(s: str) -> int:
     """
 
     :return:
     """
     maxLen = 1
-    if s == '':
+    if s == "":
         return 0
 
     for i in range(len(s)):
         substring = s[i]
-        print("substring:",substring)
-        for j in range(i+1, len(s)):
+        print("substring:", substring)
+        for j in range(i + 1, len(s)):
             if s[j] not in substring:
                 print(s[j])
                 substring = substring + s[j]
-                print("substring:",substring)
+                print("substring:", substring)
                 maxLen = max(maxLen, len(substring))
                 print("maxLen:", maxLen)
             else:
@@ -27,7 +28,6 @@ def longest_substring(s: str) -> int:
                 break
 
     return maxLen
-
 
 
 def longest_substring_2(s: str) -> int:
@@ -97,7 +97,6 @@ def get_longest_substring(s: str) -> str:
         char_position[char] = current_pos
 
     return s[max_start:max_end]
-
 
 
 if __name__ == "__main__":
