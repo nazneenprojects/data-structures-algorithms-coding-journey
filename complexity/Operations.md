@@ -6,7 +6,7 @@
 | Operation   | Time Complexity | Space Complexity |
 |:------------|:--------------:|-------------:|
 | Reading     | O(1)           |        |
-| Inertion    | O(n)          |        |
+| Insertion    | O(n)          |        |
 | Deletion    | O(n)          |        |
 
 
@@ -15,6 +15,6 @@
 | Operation   | Time Complexity | Space Complexity |
 |:------------|:--------------:|-------------:|
 | Reading        | O(n)         |        |
-| Inertion        | O(1)         |        |
+| Insertion        | O(1)         |        |
 | Deletion        | O(1)         |        |
 
