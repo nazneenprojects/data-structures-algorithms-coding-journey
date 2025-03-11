@@ -2,6 +2,7 @@
 Selection Sort
 """
 
+
 # Find smallest item's index
 def find_smallest(arr):
     # Assign first element from array as smallest
@@ -30,7 +31,7 @@ def selection_sort(arr):
     for i in range(len(copiedArray)):
 
         smallest_index = find_smallest(copiedArray)
-        #stores the result into new array
+        # stores the result into new array
         newArray.append(copiedArray.pop(smallest_index))
     return newArray
 
