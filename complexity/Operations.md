@@ -18,3 +18,12 @@
 | Insertion        | O(1)         |        |
 | Deletion        | O(1)         |        |
 
+
+## Quick Sort
+
+| Operation | Time Complexity | Space Complexity |
+|:----------|:--------------:|-------------:|
+| Best      | O(n)         |        |
+| Avg       | O(1)         |        |
+| Worst     | O(1)         |        |
+
