@@ -1,27 +1,91 @@
-Trees are a subset of graphs.
-Trees are made of nodes and edges.
-Rooted trees have one node that leads to all the other nodes.
-The only node with no parents is the root. 
-Nodes with no children are called leaf nodes.
+## Pseudo Code - In order
+
+function inorderTraversal(node):
+    if node is null:
+        return
+    inorderTraversal(node.left)
+    visit(node)  // Process the current node (e.g., print its value)
+    inorderTraversal(node.right)
+
+function inorderTraversalIterative(root):
+    stack = empty stack
+    current = root
+    
+    while current is not null OR stack is not empty:
+        // Reach the leftmost node
+        while current is not null:
+            stack.push(current)
+            current = current.left
+            
+        // Current is now null, pop from stack
+        current = stack.pop()
+        
+        // Visit the node
+        visit(current)
+        
+        // Move to the right subtree
+        current = current.right
 
 
-Breadth-first search and depth-first search are closely related, 
+## Pseudo Code - PreOrder
 
-Depth-first search cannot be used for finding the shortest path!
-only breadth-first search works for finding the shortest path. 
-Depth-first search has other uses. It can be used to find the topological sort.
+function preorderTraversal(node):
+    if node is null:
+        return
+    visit(node)  // Process the current node (e.g., print its value)
+    preorderTraversal(node.left)
+    preorderTraversal(node.right)
 
-A tree is a connected, acyclic graph.
 
-we are working exclusively with rooted trees, so our trees all have a root as well. And we are working exclusively with connected graphs. So the most important thing to remember is trees cannot have cycles.
+function preorderTraversalIterative(root):
+    if root is null:
+        return
+    
+    stack = empty stack
+    stack.push(root)
+    
+    while stack is not empty:
+        current = stack.pop()
+        
+        visit(current)  // Process the current node (e.g., print its value)
+        
+        // Push right child first, then left child to stack (so left is processed first)
+        if current.right is not null:
+            stack.push(current.right)
+        if current.left is not null:
+            stack.push(current.left)
 
-A binary tree is a special type of tree where nodes can have at most two children (hence the name binary, meaning two). These are traditionally called left child and right child.
-An ancestry tree is an example of a binary tree since everyone has two biological parents.
 
-The important thing is you never have more than two children. 
 
-Sometimes people refer to the left subtree or right subtree.
+## Pseudo Code - PostOrder
 
-Huffman coding is a neat example of using binary trees.
+function postorderTraversal(node):
+    if node is null:
+        return
+    postorderTraversal(node.left)
+    postorderTraversal(node.right)
+    visit(node)  // Process the current node (e.g., print its value)
 
-https://en.wikipedia.org/wiki/Huffman_coding#:~:text=Once%20the%20Huffman%20tree%20has,the%20right%20child%20as%201.
+
+function postorderTraversalIterative(root):
+    if root is null:
+        return
+    
+    stack1 = empty stack
+    stack2 = empty stack
+    stack1.push(root)
+    
+    while stack1 is not empty:
+        current = stack1.pop()
+        stack2.push(current)
+        
+        // Push left child first, then right child to stack1
+        if current.left is not null:
+            stack1.push(current.left)
+        if current.right is not null:
+            stack1.push(current.right)
+    
+    // Process nodes in stack2
+    while stack2 is not empty:
+        current = stack2.pop()
+        visit(current)  // Process the current node (e.g., print its value)
